@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="img/logo.png" />
     <link
       href="https://fonts.googleapis.com/css?family=Noto+Sans:300,400,500,600&display=swap"
@@ -11,295 +11,353 @@
     />
     <link rel="stylesheet" href="style.css" />
     <title>Bank Web</title>
-</head>
-<body>
-    <header class = "header">
-        <nav classs = "navigation">
-            <img src = "img/logo.png" alt = "Card logo" class = "nav__logo" id = "logo">
-        </nav>
-        <div class="nav__text">Bank Web</div>
-        <ul class="nav__links">
-          <li class="nav__item">
-            <a class="nav__link" href="#section--1">Services</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#section--2">Options</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#section--3">Feedback</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link nav__link--btn btn--show-modal-window" href="#">Open an account</a>
-          </li>
-        </ul>
+  </head>
+  <body>
+    <header class="header">
+      <nav classs="navigation">
+        <img src="img/logo.png" alt="Card logo" class="nav__logo" id="logo" />
+      </nav>
+      <div class="nav__text">Bank Web</div>
+      <ul class="nav__links">
+        <li class="nav__item">
+          <a class="nav__link" href="#section--1">Services</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" href="#section--2">Options</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" href="#section--3">Feedback</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link nav__link--btn btn--show-modal-window" href="#"
+            >Open an account</a
+          >
+        </li>
+      </ul>
 
-        <div class="header__title">
-            <h1>
-              When the
-              <span class="highlight">bank</span><br/>
-              is as clear as<br/>
-              <span class="highlight">possible</span>
-            </h1>
-            <h4>Just a clear expericence of banks for life simlification.</h4>
-            <button class="btn--text btn--scroll-to">
-             To Know More&DownArrow;
-            </button>
-            <img
-              src="img/bank.png"
-              class="header__img"
-              alt="Изображения Просто Банк"
-            />
-          </div>
+      <div class="header__title">
+        <h1>
+          When the
+          <span class="highlight">bank</span><br />
+          is as clear as<br />
+          <span class="highlight">possible</span>
+        </h1>
+        <h4>Just a clear expericence of banks for life simlification.</h4>
+        <button class="btn--text btn--scroll-to">
+          To Know More&DownArrow;
+        </button>
+        <img
+          src="img/bank.png"
+          class="header__img"
+          alt="Изображения Просто Банк"
+        />
+      </div>
     </header>
 
     <section class="section" id="section--services">
-        <div class="section__title">
-          <h2 class="section__description">Services</h2>
-          <h3 class="section__header">All required services in one bank.</h3>
+      <div class="section__title">
+        <h2 class="section__description">Services</h2>
+        <h3 class="section__header">All required services in one bank.</h3>
+      </div>
+
+      <div class="services">
+        <img
+          src="img/stock-exchange-lazy.jpg"
+          data-src="img/stock-exchange.jpg"
+          alt="Numbers in screen"
+          class="services__img lazy-img"
+        />
+        <div class="services__feature">
+          <div class="services__icon">
+            <svg>
+              <use xlink:href="img/icons.svg#icon-monitor"></use>
+            </svg>
+          </div>
+          <h5 class="services__header">100% digital bank</h5>
+          <p>
+            To monitor this growing array of digital contenders, TABInsights has
+            been assessing the performance of more than 150 leading digital
+            banks globally since 2021, ranking them based on a balanced
+            scorecard. This scorecard evaluates capabilities across five key
+            dimensions: customers, market/product coverage, profitability, asset
+            and deposit growth, and funding.
+          </p>
         </div>
-  
-        <div class="services">
-          <img
-            src="img/stock-exchange-lazy.jpg"
-            data-src="img/stock-exchange.jpg"
-            alt="Numbers in screen"
-            class="services__img lazy-img"
-          />
-          <div class="services__feature">
-            <div class="services__icon">
-              <svg>
-                <use xlink:href="img/icons.svg#icon-monitor"></use>
-              </svg>
-            </div>
-            <h5 class="services__header">100% digital bank</h5>
-            <p>
-              To monitor this growing array of digital contenders, TABInsights 
-              has been assessing the performance of more than 150 leading digital 
-              banks globally since 2021, ranking them based on a balanced scorecard. 
-              This scorecard evaluates capabilities across five key dimensions: 
-              customers, market/product coverage, profitability, asset and deposit growth, 
-              and funding. 
-            </p>
+
+        <div class="services__feature">
+          <div class="services__icon">
+            <svg>
+              <use xlink:href="img/icons.svg#icon-trending-up"></use>
+            </svg>
           </div>
-  
-          <div class="services__feature">
-            <div class="services__icon">
-              <svg>
-                <use xlink:href="img/icons.svg#icon-trending-up"></use>
-              </svg>
-            </div>
-            <h5 class="services__header">Monitor the growth of your money</h5>
-            <p>
-              At the same time, increases in the money supply in those countries isn’t 
-              associated with sustained increases in output that we would have predicted 
-              with monetary policy. It seems that in the short run, increases in the 
-              money supply lead to increases in output, but in the long run increases 
-              in the money supply just cause inflation. 
-            </p>
-          </div>
-          <img
-            src="img/business-lazy.jpg"
-            data-src="img/business.jpg"
-            alt="Growth of trend in graph"
-            class="services__img lazy-img"
-          />
-  
-          <img
-            src="img/payment-lazy.jpg"
-            data-src="img/payment.jpg"
-            alt="Credit card"
-            class="services__img lazy-img"
-          />
-          <div class="services__feature">
-            <div class="services__icon">
-              <svg>
-                <use xlink:href="img/icons.svg#icon-credit-card"></use>
-              </svg>
-            </div>
-            <h5 class="services__header">Free debit card included</h5>
-            <p>
-              A debit card is a payment card that deducts money directly from your checking 
-              account. Also called “check cards” or "bank cards," debit cards can be used to 
-              buy goods or services or to get cash from an ATM. Debit cards can help you reduce 
-              the need to carry cash, although using these cards can sometimes entail fees.
-            </p>
-          </div>
+          <h5 class="services__header">Monitor the growth of your money</h5>
+          <p>
+            At the same time, increases in the money supply in those countries
+            isn’t associated with sustained increases in output that we would
+            have predicted with monetary policy. It seems that in the short run,
+            increases in the money supply lead to increases in output, but in
+            the long run increases in the money supply just cause inflation.
+          </p>
         </div>
+        <img
+          src="img/business-lazy.jpg"
+          data-src="img/business.jpg"
+          alt="Growth of trend in graph"
+          class="services__img lazy-img"
+        />
+
+        <img
+          src="img/payment-lazy.jpg"
+          data-src="img/payment.jpg"
+          alt="Credit card"
+          class="services__img lazy-img"
+        />
+        <div class="services__feature">
+          <div class="services__icon">
+            <svg>
+              <use xlink:href="img/icons.svg#icon-credit-card"></use>
+            </svg>
+          </div>
+          <h5 class="services__header">Free debit card included</h5>
+          <p>
+            A debit card is a payment card that deducts money directly from your
+            checking account. Also called “check cards” or "bank cards," debit
+            cards can be used to buy goods or services or to get cash from an
+            ATM. Debit cards can help you reduce the need to carry cash,
+            although using these cards can sometimes entail fees.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="section--operations">
-        <div class="section__title">
-          <h2 class="section__description">Operations</h2>
-          <h3 class="section__header">Everything as simple as it can be, but not simpler.</h3>
+      <div class="section__title">
+        <h2 class="section__description">Operations</h2>
+        <h3 class="section__header">
+          Everything as simple as it can be, but not simpler.
+        </h3>
+      </div>
+
+      <div class="operations">
+        <div class="operations__tab-container">
+          <button
+            class="btn operations__tab operations__tab--1 operations__tab--active"
+            data-tab="1"
+          >
+            Instant Transfers
+          </button>
+          <button class="btn operations__tab operations__tab--2" data-tab="2">
+            Instant Loans
+          </button>
+          <button class="btn operations__tab operations__tab--3" data-tab="3">
+            Instant repayment
+          </button>
         </div>
-  
-        <div class="operations">
-          <div class="operations__tab-container">
-            <button
-              class="
-                btn
-                operations__tab operations__tab--1 operations__tab--active
-              "
-              data-tab="1">
-              Instant Transfers
-            </button>
-            <button class="btn operations__tab operations__tab--2" data-tab="2">
-              Instant Loans
-            </button>
-            <button class="btn operations__tab operations__tab--3" data-tab="3">
-              Instant repayment
-            </button>
+        <div
+          class="operations__content operations__content--1 operations__content--active"
+        >
+          <div class="operations__icon operations__icon--1">
+            <svg>
+              <use xlink:href="img/icons.svg#icon-upload"></use>
+            </svg>
           </div>
-          <div
-            class="
-              operations__content
-              operations__content--1
-              operations__content--active
-            ">
-            <div class="operations__icon operations__icon--1">
-              <svg>
-                <use xlink:href="img/icons.svg#icon-upload"></use>
-              </svg>
-            </div>
-            <h5 class="operations__header">
-              Transfer your money instantly to anyone in the system!
-            </h5>
-            <p>
-              An instant transfer, also known as an instant payment, allows your 
-              customers to make payments into your account instantly. This is more 
-              convenient and provides a faster alternative to traditional transfer 
-              methods, which can take several days.
-            </p>
-          </div>
-  
-          <div class="operations__content operations__content--2">
-            <div class="operations__icon operations__icon--2">
-              <svg>
-                <use xlink:href="img/icons.svg#icon-home"></use>
-              </svg>
-            </div>
-            <h5 class="operations__header">
-              Buy a house or make your dreams come true with instant loans.
-            </h5>
-            <p>
-              How much you can borrow and how much it costs are determined by many 
-              factors including state regulation, your ability to pay and other 
-              underwriting features. For many, an Installment Loan provides a better 
-              credit solution than a traditional payday loan. 
-            </p>
-          </div>
-          <div class="operations__content operations__content--3">
-            <div class="operations__icon operations__icon--3">
-              <svg>
-                <use xlink:href="img/icons.svg#icon-user-x"></use>
-              </svg>
-            </div>
-            <h5 class="operations__header">
-              Is your account no longer needed? No problem! Instantly delete it.
-            </h5>
-            <p>
-              Before you delete a hacked or compromised account, consider using 
-              Security Checkup to learn more about what parts of your account were 
-              accessed without your permission. That way, you can take steps to 
-              reduce further harm caused by the hacker. 
-            </p>
-          </div>
+          <h5 class="operations__header">
+            Transfer your money instantly to anyone in the system!
+          </h5>
+          <p>
+            An instant transfer, also known as an instant payment, allows your
+            customers to make payments into your account instantly. This is more
+            convenient and provides a faster alternative to traditional transfer
+            methods, which can take several days.
+          </p>
         </div>
+
+        <div class="operations__content operations__content--2">
+          <div class="operations__icon operations__icon--2">
+            <svg>
+              <use xlink:href="img/icons.svg#icon-home"></use>
+            </svg>
+          </div>
+          <h5 class="operations__header">
+            Buy a house or make your dreams come true with instant loans.
+          </h5>
+          <p>
+            How much you can borrow and how much it costs are determined by many
+            factors including state regulation, your ability to pay and other
+            underwriting features. For many, an Installment Loan provides a
+            better credit solution than a traditional payday loan.
+          </p>
+        </div>
+        <div class="operations__content operations__content--3">
+          <div class="operations__icon operations__icon--3">
+            <svg>
+              <use xlink:href="img/icons.svg#icon-user-x"></use>
+            </svg>
+          </div>
+          <h5 class="operations__header">
+            Is your account no longer needed? No problem! Instantly delete it.
+          </h5>
+          <p>
+            Before you delete a hacked or compromised account, consider using
+            Security Checkup to learn more about what parts of your account were
+            accessed without your permission. That way, you can take steps to
+            reduce further harm caused by the hacker.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="section--3">
-        <div class="section__title section__title--reviews">
-          <h2 class="section__description">You are not aure yet?</h2>
-          <h3 class="section__header">
-            Millions of users already simplified their lifes!
-          </h3>
-        </div>
-  
-        <div class="slider">
-          <div class="slide slide--1">
-            <div class="review">
-              <h5 class="review__header">Best financial solution!</h5>
-              <blockquote class="review__text">
-              The earlier you start saving, the better. For example, someone who 
-              begins saving at age 25 does not have to save as much as someone who 
-              begins saving at age 35 (in terms of percentage of income) because 
-              the 25-year-old has more time to benefit from compounding interest.
-              </blockquote>
-              <address class="review__author">
-                <img
-                  src="img/user-1.png"
-                  alt="User photo"
-                  class="review__photo"
-                />
-                <h6 class="review__name">Aigerim M.</h6>
-                <p class="review__location">Almaty, Kazakhstan</p>
-              </address>
-            </div>
-          </div>
-  
-          <div class="slide slide--2">
-            <div class="review">
-              <h5 class="review__header">
-                That's was my last step to control my financial flow
-              </h5>
-              <blockquote class="review__text">
-              Businesses take in money from sales as revenues and spend money on expenses. 
-              They may also receive income from interest, investments, royalties, and 
-              licensing agreements and sell products on credit. Assessing cash flows is 
-              essential for evaluating a company’s liquidity, flexibility, and overall 
-              financial performance. 
-              </blockquote>
-              <address class="review__author">
-                <img
-                  src="img/user-2.png"
-                  alt="User photo"
-                  class="review__photo"
-                />
-                <h6 class="review__name">Myrzhakhmet S.</h6>
-                <p class="review__location">Kostanay, Kazakhstan</p>
-              </address>
-            </div>
-          </div>
-  
-          <div class="slide slide--3">
-            <div class="review">
-              <h5 class="review__header">
-                I'm finally free from the high interest rates on the martgage in other banks
-              </h5>
-              <blockquote class="review__text">
-                For homeowners looking to refinance, today's current average 30-year 
-                refinance interest rate is 7.10%. Meanwhile, today's current average 
-                15-year fixed refinance interest rate is 6.60%. For now, the consensus 
-                is that mortgage rates will ease down in 2024. Whether you need a mortgage 
-                now or plan to get one in the next year or two, it’s crucial to compare offers.
-              </blockquote>
-              <address class="review__author">
-                <img
-                  src="img/user-3.png"
-                  alt="User photo"
-                  class="review__photo"
-                />
-                <h6 class="review__name">Abdu T.</h6>
-                <p class="review__location">Astana, Kazakhstan</p>
-              </address>
-            </div>
-          </div>
+      <div class="section__title section__title--reviews">
+        <h2 class="section__description">You are not aure yet?</h2>
+        <h3 class="section__header">
+          Millions of users already simplified their lifes!
+        </h3>
+      </div>
 
-          <button class="slider__btn slider__btn--left">&larr;</button>
-          <button class="slider__btn slider__btn--right">&rarr;</button>
-          <div class="dots"></div>
+      <div class="slider">
+        <div class="slide slide--1">
+          <div class="review">
+            <h5 class="review__header">Best financial solution!</h5>
+            <blockquote class="review__text">
+              The earlier you start saving, the better. For example, someone who
+              begins saving at age 25 does not have to save as much as someone
+              who begins saving at age 35 (in terms of percentage of income)
+              because the 25-year-old has more time to benefit from compounding
+              interest.
+            </blockquote>
+            <address class="review__author">
+              <img
+                src="img/user-1.png"
+                alt="User photo"
+                class="review__photo"
+              />
+              <h6 class="review__name">Aigerim M.</h6>
+              <p class="review__location">Almaty, Kazakhstan</p>
+            </address>
+          </div>
         </div>
+
+        <div class="slide slide--2">
+          <div class="review">
+            <h5 class="review__header">
+              That's was my last step to control my financial flow
+            </h5>
+            <blockquote class="review__text">
+              Businesses take in money from sales as revenues and spend money on
+              expenses. They may also receive income from interest, investments,
+              royalties, and licensing agreements and sell products on credit.
+              Assessing cash flows is essential for evaluating a company’s
+              liquidity, flexibility, and overall financial performance.
+            </blockquote>
+            <address class="review__author">
+              <img
+                src="img/user-2.png"
+                alt="User photo"
+                class="review__photo"
+              />
+              <h6 class="review__name">Myrzhakhmet S.</h6>
+              <p class="review__location">Kostanay, Kazakhstan</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="slide slide--3">
+          <div class="review">
+            <h5 class="review__header">
+              I'm finally free from the high interest rates on the martgage in
+              other banks
+            </h5>
+            <blockquote class="review__text">
+              For homeowners looking to refinance, today's current average
+              30-year refinance interest rate is 7.10%. Meanwhile, today's
+              current average 15-year fixed refinance interest rate is 6.60%.
+              For now, the consensus is that mortgage rates will ease down in
+              2024. Whether you need a mortgage now or plan to get one in the
+              next year or two, it’s crucial to compare offers.
+            </blockquote>
+            <address class="review__author">
+              <img
+                src="img/user-3.png"
+                alt="User photo"
+                class="review__photo"
+              />
+              <h6 class="review__name">Abdu T.</h6>
+              <p class="review__location">Astana, Kazakhstan</p>
+            </address>
+          </div>
+        </div>
+
+        <button class="slider__btn slider__btn--left">&larr;</button>
+        <button class="slider__btn slider__btn--right">&rarr;</button>
+        <div class="dots"></div>
+      </div>
     </section>
 
     <section class="section section--sign-up">
-        <div class="section__title">
-          <h3 class="section__header">
-            It's already best time to become our client!
-          </h3>
-        </div>
-        <button class="btn btn--show-modal-window">Open account today!</button>
-      </section>
+      <div class="section__title">
+        <h3 class="section__header">
+          It's already best time to become our client!
+        </h3>
+      </div>
+      <button class="btn btn--show-modal-window">Open account today!</button>
+    </section>
 
-    <script scr = "script.js"></script>
-</body>
+    <footer class="footer">
+      <ul class="footer__nav">
+        <li class="footer__item">
+          <a class="footer__link" href="#">About us</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Costs</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Terms of use</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Privacy Policy</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Career</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Blog</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="#">Contact us</a>
+        </li>
+      </ul>
+      <img src="img/logo.png" alt="Логотип банка" class="footer__logo" />
+      <p class="footer__copyright">DON'T WASTE YOUR TIME AND JOIN US!ы</p>
+      <p class="footer__copyright">
+        &copy;
+        <a
+          class="footer__link masters-of-code-link"
+          target="_blank"
+          href="https://masters-of-code.com/"
+          >Masters Of Code</a
+        >.
+      </p>
+    </footer>
+
+    <div class="modal-window hidden">
+      <button class="btn--close-modal-window">&times;</button>
+      <h2 class="modal__header">
+        Open your bank account<br />
+        in <span class="highlight">5 minutes</span>
+      </h2>
+      <form class="modal__form">
+        <label>Name</label>
+        <input type="text" />
+        <label>Surname</label>
+        <input type="text" />
+        <label>Email</label>
+        <input type="email" />
+        <button class="btn">Continue &rarr;</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <script scr="script.js"></script>
+  </body>
 </html>
