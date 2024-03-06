@@ -8,7 +8,8 @@ const btnsOpenModalWindow = document.querySelectorAll(
   '.btn--show-modal-window'
 );
 
-const openModalWindow = function () {
+const openModalWindow = function (e) {
+  e.preventDefault();
   modalWindow.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -18,9 +19,58 @@ const closeModalWindow = function () {
   overlay.classList.add('hidden');
 };
 
-for (let i = 0; i < btnsOpenModalWindow.length; i++) {
-  console.log('click on the modal btn');
-  btnsOpenModalWindow[i].addEventListener('click', openModalWindow);
-}
+btnsOpenModalWindow.forEach(btn => {
+  btn.addEventListener('click', openModalWindow);
+});
 btnCloseModalWindow.addEventListener('click', closeModalWindow);
 overlay.addEventListener('click', closeModalWindow);
+
+// Select elements
+
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.querySelectorAll('.section'));
+// console.log(document.getElementById('section--services'));
+// console.log(document.getElementsByTagName('button'));
+// console.log(document.getElementsByClassName('btn'));
+
+// Create elements
+
+// .insertAdjacentHTML()
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.innerHTML = `We use cookie to improve our functionality <button class = "btn btn--close-cookie"> Ok! </button>`;
+
+const header = document.querySelector('.header');
+header.prepend(message);
+
+// Delete elements
+
+const btnCloseCookie = document.querySelector('.btn--close-cookie');
+btnCloseCookie.addEventListener('click', e => {
+  e.preventDefault();
+  message.remove();
+});
+
+// Styles
+
+message.style.backgroundColor = '#f0f0f0';
+console.log(message.style.backgroundColor);
+// but to see the data from the css file:
+console.log(getComputedStyle(message).color);
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height) + 50 + 'px';
+
+document.documentElement.style.setProperty('--color-first', 'lightblue');
+
+// Attributes
+
+const logo = document.querySelector('.nav__logo');
+logo.alt = 'Bank Logo';
+// for a specific attribute:
+logo.setAttribute('copyright', 'Taken from Internet');
+console.log(logo.getAttribute('copyright'));
+
+// Data attributes:
+
+console.log(logo.dataset.versionNumber);
