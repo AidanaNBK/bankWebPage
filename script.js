@@ -74,3 +74,23 @@ console.log(logo.getAttribute('copyright'));
 // Data attributes:
 
 console.log(logo.dataset.versionNumber);
+
+// Smooth scrolling
+
+const btnsScrollTo = document.querySelector('.btn--scroll-to');
+const sectionServices = document.getElementById('section--services');
+btnsScrollTo.addEventListener('click', e => {
+  e.preventDefault();
+  //   const sectionCoords = sectionServices.getBoundingClientRect();
+  //   console.log('Current coordinates: ', window.pageXOffset, window.pageYOffset);
+  //   console.log(
+  //     document.documentElement.clientWidth,
+  //     document.documentElement.clientHeight
+  //   );
+  //   window.scrollTo({
+  //     left: sectionCoords.left + window.scrollX,
+  //     top: sectionCoords.top + window.scrollY,
+  //     behavior: 'smooth',
+  //   });
+  sectionServices.scrollIntoView({ behavior: 'smooth' }); // new way
+});
