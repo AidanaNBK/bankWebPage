@@ -65,12 +65,13 @@ btnsScrollTo.addEventListener('click', e => {
   sectionServices.scrollIntoView({ behavior: 'smooth' }); // new way
 });
 
-// Event delegation
-const navLinks = document.querySelectorAll('.nav__link');
-navLinks.forEach(function (elem) {
-  elem.addEventListener('click', function (e) {
-    e.preventDefault();
-    const href = this.getAttribute('href');
+const navLinksWhole = document.querySelector('.nav__links');
+// Event delegation: event listener to parent element
+navLinksWhole.addEventListener('click', function (e) {
+  e.preventDefault();
+  const target = e.target;
+  if (target.classList.contains('nav__link')) {
+    const href = target.getAttribute('href');
     document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-  });
+  }
 });

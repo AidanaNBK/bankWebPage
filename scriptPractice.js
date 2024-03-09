@@ -113,3 +113,24 @@ setTimeout(() => h1.removeEventListener('mouseenter', alertOnH1), 1000);
 //   // e.target - what exactly was clicked
 //   e.stopPropagation();
 // });
+
+// Event delegation: parent -> child
+// const navLinks = document.querySelectorAll('.nav__link');
+// navLinks.forEach(function (elem) {
+//   elem.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const href = this.getAttribute('href');
+//     document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+//   });
+// });
+
+const navLinksWhole = document.querySelector('.nav__links');
+// Event delegation: event listener to parent element
+navLinksWhole.addEventListener('click', function (e) {
+  e.preventDefault();
+  const target = e.target;
+  if (target.classList.contains('nav__link')) {
+    const href = target.getAttribute('href');
+    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+  }
+});
