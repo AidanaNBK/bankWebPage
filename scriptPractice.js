@@ -96,7 +96,7 @@ btnsScrollTo.addEventListener('click', e => {
 });
 
 // Events and event listeners
-const h1 = document.querySelector('h1');
+const h2 = document.querySelector('h2');
 const alertOnH1 = function (e) {
   alert('You still think? Join us!');
 };
@@ -134,3 +134,21 @@ navLinksWhole.addEventListener('click', function (e) {
     document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
   }
 });
+
+// DOM traversing
+const h1 = document.querySelector('h1');
+h1.querySelectorAll('.highlight').forEach(elem =>
+  console.log(elem.textContent)
+);
+// going down child nodes
+console.log(h1.childNodes);
+console.log(h1.children);
+console.log(h1.firstElementChild);
+console.log(h1.lastElementChild);
+// going uo to parent nodes
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+console.log(h1.closest('.header')); // nearest parent with class name
+// going to sibling
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);

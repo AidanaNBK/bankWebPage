@@ -42,9 +42,9 @@ btnCloseCookie.addEventListener('click', e => {
 
 // Styles
 message.style.backgroundColor = '#f0f0f0';
-console.log(message.style.backgroundColor);
+// console.log(message.style.backgroundColor);
 // but to see the data from the css file:
-console.log(getComputedStyle(message).color);
+// console.log(getComputedStyle(message).color);
 message.style.height =
   Number.parseFloat(getComputedStyle(message).height) + 50 + 'px';
 
@@ -55,7 +55,7 @@ const logo = document.querySelector('.nav__logo');
 logo.alt = 'Bank Logo';
 // for a specific attribute:
 logo.setAttribute('copyright', 'Taken from Internet');
-console.log(logo.getAttribute('copyright'));
+// console.log(logo.getAttribute('copyright'));
 
 // Smooth scrolling
 const btnsScrollTo = document.querySelector('.btn--scroll-to');
@@ -75,3 +75,33 @@ navLinksWhole.addEventListener('click', function (e) {
     document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
   }
 });
+
+// Implementation of tabs
+const tabNodes = document.querySelector('.operations__tab-container');
+const allTabButtons = document.querySelectorAll('.operations__tab');
+const operationsContent = document.querySelectorAll('.operations__content');
+let activeButton;
+tabNodes.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (e.target.closest('.operations__tab') !== null) {
+    activeButton = e.target.closest('.operations__tab');
+  }
+  // closest check element by itself
+  allTabButtons.forEach(function (elem) {
+    if (elem === activeButton) {
+      return;
+    }
+    elem.classList.remove('operations__tab--active');
+  });
+  activeButton.classList.add('operations__tab--active');
+  // console.log(activeButton.dataset.tab); <-- to access data-* attributes
+  const selectedOperation = document.querySelector(
+    `.operations__content--${activeButton.dataset.tab}`
+  );
+  operationsContent.forEach(function (elem) {
+    elem.classList.remove('operations__content--active');
+  });
+  selectedOperation.classList.add('operations__content--active');
+});
+
+//operations__content--1
