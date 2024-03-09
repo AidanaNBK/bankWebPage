@@ -26,7 +26,6 @@ btnCloseModalWindow.addEventListener('click', closeModalWindow);
 overlay.addEventListener('click', closeModalWindow);
 
 // Create elements
-
 const message = document.createElement('div');
 message.classList.add('cookie-message');
 message.innerHTML = `We use cookie to improve our functionality <button class = "btn btn--close-cookie"> Ok! </button>`;
@@ -35,7 +34,6 @@ const header = document.querySelector('.header');
 header.prepend(message);
 
 // Delete elements
-
 const btnCloseCookie = document.querySelector('.btn--close-cookie');
 btnCloseCookie.addEventListener('click', e => {
   e.preventDefault();
@@ -43,7 +41,6 @@ btnCloseCookie.addEventListener('click', e => {
 });
 
 // Styles
-
 message.style.backgroundColor = '#f0f0f0';
 console.log(message.style.backgroundColor);
 // but to see the data from the css file:
@@ -54,22 +51,26 @@ message.style.height =
 document.documentElement.style.setProperty('--color-first', 'lightblue');
 
 // Attributes
-
 const logo = document.querySelector('.nav__logo');
 logo.alt = 'Bank Logo';
 // for a specific attribute:
 logo.setAttribute('copyright', 'Taken from Internet');
 console.log(logo.getAttribute('copyright'));
 
-// Data attributes:
-
-console.log(logo.dataset.versionNumber);
-
 // Smooth scrolling
-
 const btnsScrollTo = document.querySelector('.btn--scroll-to');
 const sectionServices = document.getElementById('section--services');
 btnsScrollTo.addEventListener('click', e => {
   e.preventDefault();
   sectionServices.scrollIntoView({ behavior: 'smooth' }); // new way
+});
+
+// Event delegation
+const navLinks = document.querySelectorAll('.nav__link');
+navLinks.forEach(function (elem) {
+  elem.addEventListener('click', function (e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+  });
 });
