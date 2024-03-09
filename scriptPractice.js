@@ -25,8 +25,18 @@ btnsOpenModalWindow.forEach(btn => {
 btnCloseModalWindow.addEventListener('click', closeModalWindow);
 overlay.addEventListener('click', closeModalWindow);
 
+// Select elements
+
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.querySelectorAll('.section'));
+// console.log(document.getElementById('section--services'));
+// console.log(document.getElementsByTagName('button'));
+// console.log(document.getElementsByClassName('btn'));
+
 // Create elements
 
+// .insertAdjacentHTML()
 const message = document.createElement('div');
 message.classList.add('cookie-message');
 message.innerHTML = `We use cookie to improve our functionality <button class = "btn btn--close-cookie"> Ok! </button>`;
@@ -71,5 +81,35 @@ const btnsScrollTo = document.querySelector('.btn--scroll-to');
 const sectionServices = document.getElementById('section--services');
 btnsScrollTo.addEventListener('click', e => {
   e.preventDefault();
+  //   const sectionCoords = sectionServices.getBoundingClientRect();
+  //   console.log('Current coordinates: ', window.pageXOffset, window.pageYOffset);
+  //   console.log(
+  //     document.documentElement.clientWidth,
+  //     document.documentElement.clientHeight
+  //   );
+  //   window.scrollTo({
+  //     left: sectionCoords.left + window.scrollX,
+  //     top: sectionCoords.top + window.scrollY,
+  //     behavior: 'smooth',
+  //   });
   sectionServices.scrollIntoView({ behavior: 'smooth' }); // new way
 });
+
+// Events and event listeners
+const h1 = document.querySelector('h1');
+const alertOnH1 = function (e) {
+  alert('You still think? Join us!');
+};
+h1.addEventListener('mouseenter', alertOnH1);
+setTimeout(() => h1.removeEventListener('mouseenter', alertOnH1), 1000);
+// h1.onmouseenter = () => {
+//   alert('Mouseenter');
+// };
+
+// // Event propagation: parent -> child
+// document.querySelector('.nav__link').addEventListener('click', e => {
+//   console.log('Target: ', e.target);
+//   // this === e.currentTarget
+//   // e.target - what exactly was clicked
+//   e.stopPropagation();
+// });
