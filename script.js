@@ -1,13 +1,22 @@
 'use strict';
 
-// Modal Window
 const modalWindow = document.querySelector('.modal-window');
 const overlay = document.querySelector('.overlay');
 const btnCloseModalWindow = document.querySelector('.btn--close-modal-window');
 const btnsOpenModalWindow = document.querySelectorAll(
   '.btn--show-modal-window'
 );
+const navigationHeader = document.querySelector('.navigation');
+const header = document.querySelector('.header');
+const logo = document.querySelector('.nav__logo');
+const tabNodes = document.querySelector('.operations__tab-container');
+const allTabButtons = document.querySelectorAll('.operations__tab');
+const operationsContent = document.querySelectorAll('.operations__content');
+const btnsScrollTo = document.querySelector('.btn--scroll-to');
+const sectionServices = document.getElementById('section--services');
+const navLinksWhole = document.querySelector('.nav__links');
 
+// Modal Window
 const openModalWindow = function (e) {
   e.preventDefault();
   modalWindow.classList.remove('hidden');
@@ -29,8 +38,6 @@ overlay.addEventListener('click', closeModalWindow);
 const message = document.createElement('div');
 message.classList.add('cookie-message');
 message.innerHTML = `We use cookie to improve our functionality <button class = "btn btn--close-cookie"> Ok! </button>`;
-
-const header = document.querySelector('.header');
 header.prepend(message);
 
 // Delete elements
@@ -51,21 +58,17 @@ message.style.height =
 document.documentElement.style.setProperty('--color-first', 'lightblue');
 
 // Attributes
-const logo = document.querySelector('.nav__logo');
 logo.alt = 'Bank Logo';
 // for a specific attribute:
 logo.setAttribute('copyright', 'Taken from Internet');
 // console.log(logo.getAttribute('copyright'));
 
 // Smooth scrolling
-const btnsScrollTo = document.querySelector('.btn--scroll-to');
-const sectionServices = document.getElementById('section--services');
 btnsScrollTo.addEventListener('click', e => {
   e.preventDefault();
   sectionServices.scrollIntoView({ behavior: 'smooth' }); // new way
 });
 
-const navLinksWhole = document.querySelector('.nav__links');
 // Event delegation: event listener to parent element
 navLinksWhole.addEventListener('click', function (e) {
   e.preventDefault();
@@ -76,10 +79,7 @@ navLinksWhole.addEventListener('click', function (e) {
   }
 });
 
-// Implementation of tabs
-const tabNodes = document.querySelector('.operations__tab-container');
-const allTabButtons = document.querySelectorAll('.operations__tab');
-const operationsContent = document.querySelectorAll('.operations__content');
+// Implementation of tabs (operations)
 let activeButton;
 tabNodes.addEventListener('click', function (e) {
   e.preventDefault();
@@ -104,4 +104,36 @@ tabNodes.addEventListener('click', function (e) {
   selectedOperation.classList.add('operations__content--active');
 });
 
-//operations__content--1
+// Animation of hover effect on navigation links
+const navLinksHoverAnimation = function (e) {
+  // console.log(this, e.target);
+  if (e.target.classList.contains('nav__link')) {
+    const linkOver = e.target;
+    const siblingLinks = linkOver
+      .closest('.nav__links')
+      .querySelectorAll('.nav__link');
+    const logo = linkOver.closest('.navigation').querySelector('img');
+    const logoText = linkOver
+      .closest('.navigation')
+      .querySelector('.nav__text');
+    siblingLinks.forEach(elem => {
+      if (elem !== linkOver) {
+        elem.style.opacity = this;
+      }
+    });
+    logo.style.opacity = this;
+    logoText.style.opacity = this;
+  }
+};
+
+// work with arguments with use of bind
+navigationHeader.addEventListener(
+  'mouseover',
+  navLinksHoverAnimation.bind(0.4)
+);
+navigationHeader.addEventListener('mouseout', navLinksHoverAnimation.bind(1));
+
+// ex: without binding (in this case need to send the parameter 'opac' instead of 'this')
+// navigationHeader.addEventListener('mouseout', function (e) {
+//   navLinksHoverAnimation(e.target, 1);
+// });
