@@ -17,8 +17,10 @@ const sectionServices = document.getElementById('section--services');
 const navLinksWhole = document.querySelector('.nav__links');
 const serviceImgs = document.querySelectorAll('.services__img');
 const allSections = document.querySelectorAll('.section');
+const slidesAll = document.querySelectorAll('.slide');
 const btnSliderLeft = document.querySelector('.slider__btn--left');
 const btnSliderRight = document.querySelector('.slider__btn--right');
+const dots = document.querySelector('.dots');
 
 // Modal Window
 const openModalWindow = function (e) {
@@ -205,7 +207,6 @@ allSections.forEach(sectionElem => {
 });
 
 // Slider implementation
-const slidesAll = document.querySelectorAll('.slide');
 
 // temporary for effect
 // const slider = document.querySelector('.slider');
@@ -213,6 +214,16 @@ const slidesAll = document.querySelectorAll('.slide');
 // slider.style.overflow = 'visible';
 
 let currentSlide = 0;
+
+let dotButtons = new Array(slidesAll.length);
+for (let i = 0; i < slidesAll.length; i++) {
+  dotButtons[i] = document.createElement('button');
+  dotButtons[i].classList.add('dots__dot');
+  dotButtons[i].dataset.index = i;
+  dots.append(dotButtons[i]);
+}
+dotButtons[0].classList.add('dots__dot--active');
+
 const moveImage = function () {
   if (currentSlide < 0) {
     currentSlide = slidesAll.length - 1;
@@ -222,15 +233,41 @@ const moveImage = function () {
   slidesAll.forEach((slide, index) => {
     slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
   });
+  dotButtons.forEach(dot => {
+    dot.classList.remove('dots__dot--active');
+  });
+  dotButtons[currentSlide].classList.add('dots__dot--active');
 };
+
 moveImage();
 btnSliderLeft.addEventListener('click', () => {
-  console.log('btn Left clicked');
   currentSlide--;
   moveImage();
 });
 btnSliderRight.addEventListener('click', () => {
-  console.log('btn Right clicked');
   currentSlide++;
+  moveImage();
+});
+document.addEventListener('keydown', e => {
+  // console.log(e);
+  // key: 'ArrowRight'/'ArrowLeft'
+  if (e.key === 'ArrowRight') {
+    currentSlide++;
+    moveImage();
+  }
+  if (e.key === 'ArrowLeft') {
+    currentSlide--;
+    moveImage();
+  }
+});
+
+// dotButtons.forEach(dot => {
+//   dot.addEventListener('click', () => {
+//     currentSlide = dot.dataset.index;
+//     moveImage();
+//   });
+// });
+dots.addEventListener('click', e => {
+  currentSlide = e.target.closest('.dots__dot').dataset.index;
   moveImage();
 });
