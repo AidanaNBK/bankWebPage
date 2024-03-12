@@ -152,3 +152,79 @@ console.log(h1.closest('.header')); // nearest parent with class name
 // going to sibling
 console.log(h1.previousElementSibling);
 console.log(h1.nextElementSibling);
+
+// Animation of hover effect on navigation links
+const navLinksHoverAnimation = function (e) {
+  // console.log(this, e.target);
+  if (e.target.classList.contains('nav__link')) {
+    const linkOver = e.target;
+    const siblingLinks = linkOver
+      .closest('.nav__links')
+      .querySelectorAll('.nav__link');
+    const logo = linkOver.closest('.navigation').querySelector('img');
+    const logoText = linkOver
+      .closest('.navigation')
+      .querySelector('.nav__text');
+    siblingLinks.forEach(elem => {
+      if (elem !== linkOver) {
+        elem.style.opacity = this;
+      }
+    });
+    logo.style.opacity = this;
+    logoText.style.opacity = this;
+  }
+};
+
+// work with arguments with use of bind
+navigationHeader.addEventListener(
+  'mouseover',
+  navLinksHoverAnimation.bind(0.4)
+);
+navigationHeader.addEventListener('mouseout', navLinksHoverAnimation.bind(1));
+
+// ex: without binding (in this case need to send the parameter 'opac' instead of 'this')
+// navigationHeader.addEventListener('mouseout', function (e) {
+//   navLinksHoverAnimation(e.target, 1);
+// });
+
+// Position sticky of the navigation panel // old method
+window.addEventListener('scroll', function (e) {
+  //   console.log(
+  //     this.window.screenY,
+  //     navigationHeader.getBoundingClientRect().bottom
+  //   );
+  if (window.scrollY > navigationHeader.getBoundingClientRect().bottom) {
+    navigationHeader.classList.add('sticky');
+    console.log(navigationHeader.classList);
+  } else {
+    navigationHeader.classList.remove('sticky');
+  }
+});
+
+// Sticky navigation with Intersection Observer API
+const observerOptions = {
+  root: null,
+  // null is the whole viewport
+  // root is the element that will intersect target element (in .oberve)
+  threshold: 1,
+  // % of the intersection when the callbackFunction will be called
+  rootMargin: '100px',
+};
+const observerCallback = function (entries, observer) {
+  // observer - created object
+  // entries - moment of intersection with target
+  //   entries.forEach(entry => {
+  //     console.log(entry.isIntersecting);
+  //     // false -> moving from element
+  //     // true -> moving to element
+  //   });
+  entries.forEach(entry => {
+    if (entry.isIntersecting === false) {
+      navigationHeader.classList.add('sticky');
+    } else {
+      navigationHeader.classList.remove('sticky');
+    }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+observer.observe(header);

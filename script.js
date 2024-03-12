@@ -15,6 +15,8 @@ const operationsContent = document.querySelectorAll('.operations__content');
 const btnsScrollTo = document.querySelector('.btn--scroll-to');
 const sectionServices = document.getElementById('section--services');
 const navLinksWhole = document.querySelector('.nav__links');
+const serviceImgs = document.querySelectorAll('.services__img');
+const allSections = document.querySelectorAll('.section');
 
 // Modal Window
 const openModalWindow = function (e) {
@@ -75,7 +77,9 @@ navLinksWhole.addEventListener('click', function (e) {
   const target = e.target;
   if (target.classList.contains('nav__link')) {
     const href = target.getAttribute('href');
-    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+    if (href !== '#') {
+      document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+    }
   }
 });
 
@@ -125,7 +129,6 @@ const navLinksHoverAnimation = function (e) {
     logoText.style.opacity = this;
   }
 };
-
 // work with arguments with use of bind
 navigationHeader.addEventListener(
   'mouseover',
@@ -133,7 +136,67 @@ navigationHeader.addEventListener(
 );
 navigationHeader.addEventListener('mouseout', navLinksHoverAnimation.bind(1));
 
-// ex: without binding (in this case need to send the parameter 'opac' instead of 'this')
-// navigationHeader.addEventListener('mouseout', function (e) {
-//   navLinksHoverAnimation(e.target, 1);
-// });
+// Sticky navigation with Intersection Observer API
+const observerOptions = {
+  root: null,
+  // null is the whole viewport
+  threshold: 1,
+  rootMargin: '100px',
+};
+const observerCallback = function (entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting === false) {
+      navigationHeader.classList.add('sticky');
+    } else {
+      navigationHeader.classList.remove('sticky');
+    }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+observer.observe(header);
+
+// Taking blur from img (using Intersection Observer)
+const imgObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting === true) {
+        entry.target.classList.remove('lazy-img');
+      } else {
+        entry.target.classList.add('lazy-img');
+      }
+      console.log(entry);
+    });
+  },
+  {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${serviceImgs[0].height}px`,
+  }
+);
+serviceImgs.forEach(imgElem => {
+  imgObserver.observe(imgElem);
+});
+
+console.log(allSections);
+
+// Taking section-hidden effect with observer
+const sectionObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting === true) {
+        entry.target.classList.remove('section--hidden');
+      } else {
+        entry.target.classList.add('section--hidden');
+      }
+      console.log(entry);
+    });
+  },
+  {
+    root: null,
+    threshold: 0,
+    rootMargin: `-100px`,
+  }
+);
+allSections.forEach(sectionElem => {
+  sectionObserver.observe(sectionElem);
+});
