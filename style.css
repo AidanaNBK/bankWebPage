@@ -377,7 +377,7 @@ h4 {
   height: 50rem;
   margin: 0 auto;
   position: relative;
-
+  /* to hide the other slider parts*/
   overflow: hidden;
 }
 

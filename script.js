@@ -17,6 +17,8 @@ const sectionServices = document.getElementById('section--services');
 const navLinksWhole = document.querySelector('.nav__links');
 const serviceImgs = document.querySelectorAll('.services__img');
 const allSections = document.querySelectorAll('.section');
+const btnSliderLeft = document.querySelector('.slider__btn--left');
+const btnSliderRight = document.querySelector('.slider__btn--right');
 
 // Modal Window
 const openModalWindow = function (e) {
@@ -200,4 +202,35 @@ const sectionObserver = new IntersectionObserver(
 );
 allSections.forEach(sectionElem => {
   sectionObserver.observe(sectionElem);
+});
+
+// Slider implementation
+const slidesAll = document.querySelectorAll('.slide');
+
+// temporary for effect
+// const slider = document.querySelector('.slider');
+// slider.style.transform = 'scale(0.3)';
+// slider.style.overflow = 'visible';
+
+let currentSlide = 0;
+const moveImage = function () {
+  if (currentSlide < 0) {
+    currentSlide = slidesAll.length - 1;
+  } else if (currentSlide >= slidesAll.length) {
+    currentSlide = 0;
+  }
+  slidesAll.forEach((slide, index) => {
+    slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
+  });
+};
+moveImage();
+btnSliderLeft.addEventListener('click', () => {
+  console.log('btn Left clicked');
+  currentSlide--;
+  moveImage();
+});
+btnSliderRight.addEventListener('click', () => {
+  console.log('btn Right clicked');
+  currentSlide++;
+  moveImage();
 });
