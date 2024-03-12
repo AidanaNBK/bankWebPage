@@ -157,14 +157,17 @@ observer.observe(header);
 
 // Taking blur from img (using Intersection Observer)
 const imgObserver = new IntersectionObserver(
-  entries => {
+  (entries, observer) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting === true) {
-        entry.target.classList.remove('lazy-img');
-      } else {
-        entry.target.classList.add('lazy-img');
+      if (entry.isIntersecting) {
+        console.log(entry.target.dataset.src);
+        entry.target.src = entry.target.dataset.src;
+        entry.target.addEventListener('load', () => {
+          // check for the image to load fully
+          entry.target.classList.remove('lazy-img');
+        });
+        observer.unobserve(entry.target);
       }
-      //   console.log(entry);
     });
   },
   {
@@ -177,23 +180,21 @@ serviceImgs.forEach(imgElem => {
   imgObserver.observe(imgElem);
 });
 
-// console.log(allSections);
-
 // Taking section-hidden effect with observer
 const sectionObserver = new IntersectionObserver(
-  entries => {
+  (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting === true) {
         entry.target.classList.remove('section--hidden');
       } else {
         entry.target.classList.add('section--hidden');
       }
-      //   console.log(entry);
+      // observer.unobserve(entry.target); // to remove observer
     });
   },
   {
     root: null,
-    threshold: 0.2,
+    threshold: 0.3,
     // rootMargin: `-100px`,
   }
 );
