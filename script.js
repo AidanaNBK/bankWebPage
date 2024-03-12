@@ -164,7 +164,7 @@ const imgObserver = new IntersectionObserver(
       } else {
         entry.target.classList.add('lazy-img');
       }
-      console.log(entry);
+      //   console.log(entry);
     });
   },
   {
@@ -177,7 +177,7 @@ serviceImgs.forEach(imgElem => {
   imgObserver.observe(imgElem);
 });
 
-console.log(allSections);
+// console.log(allSections);
 
 // Taking section-hidden effect with observer
 const sectionObserver = new IntersectionObserver(
@@ -188,13 +188,13 @@ const sectionObserver = new IntersectionObserver(
       } else {
         entry.target.classList.add('section--hidden');
       }
-      console.log(entry);
+      //   console.log(entry);
     });
   },
   {
     root: null,
-    threshold: 0,
-    rootMargin: `-100px`,
+    threshold: 0.2,
+    // rootMargin: `-100px`,
   }
 );
 allSections.forEach(sectionElem => {
